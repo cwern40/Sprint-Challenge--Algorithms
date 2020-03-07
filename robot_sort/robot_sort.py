@@ -99,24 +99,24 @@ class SortingRobot:
         self.swap_item()
         self.move_right()
         self.set_light_off()
-        while self._light == "OFF" and self._item != None:
+        while self._item != None:
             if self.compare_item() == 1:
                 self.swap_item()
             if self.can_move_right():
                 self.move_right()
             else:
                 self.set_light_on()
-        while self._light == "ON":
-            if self.compare_item() == None:
-                self.swap_item()
-                if self.can_move_right():
-                    self.move_right()
+            while self._light == "ON":
+                if self.compare_item() == None:
                     self.swap_item()
-                    self.set_light_off()
-                else:
-                    self.set_light_off()
-            if self.can_move_left():
-                self.can_move_left()
+                    if self.can_move_right():
+                        self.move_right()
+                        self.swap_item()
+                        self.set_light_off()
+                    else:
+                        self.set_light_off()
+                elif self.can_move_left():
+                    self.move_left()
         return self._list
 
 # When the light is off and the robot has none then swap with the current item and move to the right. if robot item is less then current item then move to the right, otherwise swap and then move to the right. Keep doing that until I hit th end of the list and them move back to the left until the current itme equals none then swap the items and move to the right and swapt items. Repeat until None is held by the robot and it is at the end of the array. Similar to insert sort.
