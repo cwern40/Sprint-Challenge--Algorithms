@@ -13,4 +13,4 @@ O(n). A recursive function that recurses once each call and by n-1.
 
 ## Exercise II
 
-
+My algorithm would have a variable called max_drop. This will hold the value for the highest floor that would not break an egg. I would set this value to the number of stories in the building. If the eggs were dropped at random floors and assuming the list was unorganized then I would loop through each case and if an egg was broken and that floor - 1 is less then the current value of max_drop then I would set max_drop to that value. I would then return max_drop + 1.
